@@ -3,9 +3,6 @@ import React, {useState} from "react";
 import "./LoginPage.css"
 
 const LoginPage = () => {
-    const alertas = {
-        
-    }
 
     // Usando o "hook" useState para mudança de estado do email.
     const[email, setEmail] = useState("");
