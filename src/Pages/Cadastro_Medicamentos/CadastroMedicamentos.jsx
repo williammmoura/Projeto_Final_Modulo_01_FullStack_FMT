@@ -1,56 +1,74 @@
-import React from "react";
+// Import do react-hook-form.
+import {useForm} from 'react-hook-form';
 
-const CadastroMediacamentos = () => {
+function CadastroMedicamentos(){
+    const{register, handleSubmit, formState:{errors}} = useForm();
+
+    function createCadMedicamento(data){
+        console.log(data);
+    }
+
     return(
-        <div id="cadMedicamentos">
+        <main id="cadMedicamentos">
             <h1>Cadastro de Mediacamentos</h1>
-            <form>
+            <form className='formularioMedicamento' onSubmit={handleSubmit(createCadMedicamento)}>
+
+                {/* CAMPO NOME MEDICAMENTO*/}
                 <div className="campo">
                     <label htmlFor="nomeMedicamento">Nome do Medicamento:</label>
                     <input type="text"
-                    name="nomeMedicamento"
-                    placeholder=""
-                    id="nomeMedicamento"/>
+                    id="nomeMedicamento"
+                    {...register("nomeMedicamento", {required: true})}/>
                 </div>
+
+                {/* CAMPO NOME LABORATÓRIO*/}
                 <div className="campo">
                     <label htmlFor="nomeLab">Nome do Laboratório:</label>
                     <input type="text"
-                    name="nomeLab"
-                    placeholder=""
-                    id="nomeLab"/>
+                    id="nomeLab"
+                    {...register("nomeLab", {required: true})}/>
                 </div>
+
+                {/* CAMPO DOSAGEM*/}
                 <div className="campo">
-                    <label htmlFor="dosagem">Dosagem do medicamento:</label>
+                    <label htmlFor="dosagem">Dosagem do Medicamento:</label>
                     <input type="number"
-                    name="dosagem"
-                    placeholder=""
-                    id="dosagem"/>
+                    id="dosagem"
+                    {...register("dosagem", {required: true})}/>
                 </div>
+
+                {/* CAMPO DESCRIÇÃO*/}
                 <div className="campo">
                     <label htmlFor="descricao">Descrição do Medicamento:</label>
                     <input type="textarea"
-                    name="descricao"
-                    placeholder=""
-                    id="descricao"/>
+                    {...register("descricao", {required: false})}/>
                 </div>
+
+                {/* CAMPO PREÇO UNIDADE*/}
                 <div className="campo">
                     <label htmlFor="precoUni">Preço unitário do medicamento:</label>
                     <input type="numbr"
-                    name="precoUni"
-                    placeholder=""
-                    id="precoUni"/>
+                    id="precoUni"
+                    {...register("precoUni", {required: true})}/>
                 </div>
+
+                {/* CAMPO TIPO (SELECT)*/}
                 <div className="campo">
-                    <label htmlFor="tipo">Tipo de medicamento:</label>
+                    <label htmlFor="tipo">Tipo de Medicamento:</label>
                     <select name="tipo" id="tipo">
                         <option value="default">--Selecione--</option>
                         <option value="comum">Medicamento Comum</option>
                         <option value="controlado">Medicamento Controlado</option>
                     </select>
                 </div>
+
+                {/* BOTÃO */}
+                <div className='botao'>
+                    <button type='submit'>Enviar</button>
+                </div>
             </form>
-        </div>
+        </main>
     );
 }
 
-export default CadastroMediacamentos
+export default CadastroMedicamentos;

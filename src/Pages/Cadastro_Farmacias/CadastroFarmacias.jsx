@@ -1,105 +1,147 @@
-import React from "react";
+// Import do react-hook-form.
+import {useForm} from 'react-hook-form';
 
-const CadastroFarmacia = () => {
+function CadastroFarmacia(){
+    const{register, handleSubmit, formState:{errors}} = useForm();
+
+    function createFarmacia(data){
+        console.log(data);
+    }
+
     return(
-        <div id="CadastroFarm">
+        <main id="CadastroFarm">
             <h1 className="tituloFormFarmacia">Cadastro de Farmácias</h1>
-            <form className="formularioFarmacia">
+            <form className="formularioFarmacia" onSubmit={handleSubmit(createFarmacia)}>
+                
+                {/* CAMPO RAZÃO SOCIAL*/}
                 <div className="campo">
                     <label htmlFor="razaoSocial">Razão social:</label>
                     <input type="text"
-                    name="razaoSocial"
-                    placeholder="Razão Social"
-                    id="razaoSocial"/>
+                    id="razaoSocial"
+                    {...register("razaoSocial", {required: true})}/>
+                    <span>*</span>
                 </div>
+
+                {/* CAMPO CNPJ*/}
                 <div className="campo">
                     <label htmlFor="cnpj">CNPJ:</label>
                     <input type="number"
-                    name="cnpj"
+                    id="cnpj"
                     placeholder="00.000.000/0000-00"
-                    id="cnpj"/>
+                    {...register("cnpj", {required: true})}/>
+                    <span>*</span>
                 </div>
+
+                {/* CAMPO NOME FANTASIA*/}
                 <div className="campo">
                     <label htmlFor="nomeFantasia">Nome fantasia:</label>
                     <input type="text"
-                    name="nomeFantasia"
-                    placeholder=""
-                    id="nomeFantasia"/>
+                    id="nomeFantasia"
+                    {...register("nomeFantasia", {required: true})}/>
+                    <span>*</span>
                 </div>
+
+                {/* CAMPO E-MAIL*/}
                 <div className="campo">
                     <label htmlFor="email">E-mail:</label>
-                    <input type="text"
-                    name="email"
+                    <input type="email"
+                    id="email"
                     placeholder="exemplo@exemplo.com"
-                    id="email"/>
+                    {...register("email", {required: true})}/>
+                    <span>*</span>
                 </div>
+
+                {/* CAMPO TELEFONE*/}
                 <div className="campo">
                     <label htmlFor="telefone">Telefone:</label>
-                    <input type="number"
-                    name="telefone"
+                    <input type="tel"
+                    id="telefone"
                     placeholder="(XX)XXXX-XXXX"
-                    id="telefone"/>
+                    {...register("telefone", {required: false})}/>
+                    <span>*</span>
                 </div>
+
+                {/* CAMPO CELULAR*/}
                 <div className="campo">
                     <label htmlFor="celular">Celular:</label>
-                    <input type="number"
-                    name="celular"
+                    <input type="tel"
+                    id="celular"
                     placeholder="(XX)XXXX-XXXX"
-                    id="celular"/>
+                    {...register("celular", {required: false})}/>
+                    <span>*</span>
                 </div>
+
+                {/* CAMPO LOGRADOURO*/}
                 <div className="campo">
-                    <h3>Endereço</h3>
+                    <h3>Endereço:</h3>
                     <label htmlFor="logradouro">Logradouro:</label>
                     <input type="text"
-                    name="logradouro"
-                    placeholder=""
-                    id="logradouro"/>
+                    id="logradouro"
+                    {...register("logradouro", {required: true})}/>
+                    <span>*</span>
                 </div>
+
+                {/* CAMPO CEP*/}
                 <div className="campo">
                     <label htmlFor="cep">CEP:</label>
                     <input type="number"
-                    name="cep"
+                    id="cep"
                     placeholder="00000-000"
-                    id="cep"/>
+                    {...register("cep", {required: true})}/>
+                    <span>*</span>
                 </div>
+
+                {/* CAMPO NÚMERO*/}
                 <div className="campo">
                     <label htmlFor="numero">Número:</label>
                     <input type="number"
-                    name="numero"
-                    placeholder=""
-                    id="numero"/>
+                    id="numero"
+                    {...register("numero", {required: true})}/>
+                    <span>*</span>
                 </div>
+
+                {/* CAMPO COMPLEMENTO*/}
                 <div className="campo">
                     <label htmlFor="complemento">Complemento:</label>
                     <input type="text"
-                    name="complemento"
-                    placeholder=""
-                    id="complemento"/>
+                    id="complemento"
+                    placeholder="Apto.:000 / bloco: x"
+                    {...register("complemento", {required: false})}/>
                 </div>
+
+                {/* CAMPO BAIRRO*/}
                 <div className="campo">
-                    <label htmlFor="numero">Bairro:</label>
+                    <label htmlFor="bairro">Bairro:</label>
                     <input type="text"
-                    name="bairro"
-                    placeholder=""
-                    id="bairro"/>
+                    id="bairro"
+                    {...register("bairro", {required: true})}/>
+                    <span>*</span>
                 </div>
+
+                {/* CAMPO CIDADE*/}
                 <div className="campo">
-                    <label htmlFor="numero">Cidade:</label>
+                    <label htmlFor="cidade">Cidade:</label>
                     <input type="text"
-                    name="cidade"
-                    placeholder=""
-                    id="cidade"/>
+                    id="cidade"
+                    {...register("cidade", {required: true})}/>
+                    <span>*</span>
                 </div>
+
+                {/* CAMPO ESTADO*/}
                 <div className="campo">
                     <label htmlFor="estado">Estado:</label>
                     <input type="text"
-                    name="estado"
-                    placeholder=""
-                    id="estado"/>
+                    id="estado"
+                    {...register("estado", {required: true})}/>
+                    <span>*</span>
+                </div>
+
+                {/* BOTÃO */}
+                <div className='botao'>
+                    <button type='submit'>Enviar</button>
                 </div>                
             </form>
-
-        </div>
+        </main>
     );
 }
 
