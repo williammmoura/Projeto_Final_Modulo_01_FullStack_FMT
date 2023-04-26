@@ -34,8 +34,8 @@ export const MenuHeader = () => {
           Informações dos Medicamentos
         </Link>
 
-        <Link to="/sac">
-          SAC
+        <Link to="/faq">
+          FAQ
         </Link>
 
         <button onClick={handleLogout}>
