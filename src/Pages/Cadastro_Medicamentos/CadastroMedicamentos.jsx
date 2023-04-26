@@ -82,6 +82,18 @@ const CadastroMedicamentos = () => {
 
                     <Form.Group as={Col}>
                         <Input
+                            name="precoUni"
+                            label="Preço Unitário:"
+                            id="precoUni"
+                            error={errors.precoUni && errors.precoUni.message}
+                            {...register("precoUni")}
+                        />
+                    </Form.Group>    
+                </Row>
+
+                <Row className='mb-4'>
+                    <Form.Group as={Col}>
+                        <Input style={{ height: '100px' }}
                             name="descricao"
                             label="Descrição:"
                             id="descricao"
@@ -90,28 +102,18 @@ const CadastroMedicamentos = () => {
                             error={errors.descricao && errors.descricao.message}
                             {...register("descricao")}
                         />
-                    </Form.Group>    
+                    </Form.Group>
                 </Row>
 
                 <Row className='mb-4'>
                     <Form.Group as={Col}>
-                        <Input
-                            name="precoUni"
-                            label="Preço Unitário:"
-                            id="precoUni"
-                            error={errors.precoUni && errors.precoUni.message}
-                            {...register("precoUni")}
-                        />
-                    </Form.Group>
-
-                    <Form.Group as={Col}>
                         <div className="campo">
                             <label htmlFor="tipo">Tipo de Medicamento:</label>
-                            <select name="tipo" id="tipo">
+                            <Form.Select name="tipo" id="tipo">
                                 <option value="default">--Selecione--</option>
                                 <option value="comum">Medicamento Comum</option>
                                 <option value="controlado">Medicamento Controlado</option>
-                            </select>
+                            </Form.Select>
                         </div>
                     </Form.Group>
                 </Row>
