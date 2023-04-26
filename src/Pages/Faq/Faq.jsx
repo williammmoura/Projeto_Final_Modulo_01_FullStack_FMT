@@ -1,7 +1,7 @@
 import React from 'react';
 import  { Accordion } from 'react-bootstrap';
 
-export const Sac = () => {
+export const Faq = () => {
     return (
         <Accordion defaultActiveKey="0">
             <Accordion.Item eventKey="0">
