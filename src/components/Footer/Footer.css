@@ -1,16 +1,35 @@
-.footer {
+footer {
     background-color: #245dd8;
-    padding: 20px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    font-size: 14px;
+    color: #fff;
 }
 
-.footer h1 {
-    margin: 0;
-    font-size: 28px;
+footer h1 {
+    margin-bottom: 1rem;
 }
 
-.footer p {
-    margin: 0;
-    color: #666;
+footer p:first-of-type {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+footer div {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+footer div svg {
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+footer p:last-of-type {
+    font-size: 0.8rem;
+    margin-top: 1rem;
 }

@@ -7,6 +7,7 @@ import ListaFarmacias from './Pages/ListaFarmacias/ListaFarmacias';
 import CadastroFarmacias from './Pages/Cadastro_Farmacias/CadastroFarmacias'
 import CadastroMedicamentos from './Pages/Cadastro_Medicamentos/CadastroMedicamentos'
 import { ListaMedicamentos } from './Pages/ListaMedicamentos/ListaMedicamentos'
+import { Sac } from './Pages/Sac/Sac'
 
 // Import do contexto de autenticação
 import { useAuth } from "./context/store/Auth";
@@ -36,6 +37,7 @@ const Router = () => {
                             <Route exact path="/cadastro-farmacias" element={<CadastroFarmacias />} />
                             <Route exact path="/cadastro-medicamentos" element={<CadastroMedicamentos/>} />
                             <Route exact path="/lista-medicamentos" element={<ListaMedicamentos/>}/>
+                            <Route exact path="/sac" element={<Sac/>}/>
                         </Route>
                     )
                 }
