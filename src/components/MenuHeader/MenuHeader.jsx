@@ -23,7 +23,7 @@ export const MenuHeader = () => {
         </Link>
 
         <Link to="/cadastro-farmacias">
-          Cadastro Farmacias
+          Cadastro Farmácias
         </Link>
 
         <Link to="/cadastro-medicamentos">
@@ -32,6 +32,10 @@ export const MenuHeader = () => {
 
         <Link to="/lista-medicamentos">
           Informações dos Medicamentos
+        </Link>
+
+        <Link to="/faq">
+          FAQ
         </Link>
 
         <button onClick={handleLogout}>
