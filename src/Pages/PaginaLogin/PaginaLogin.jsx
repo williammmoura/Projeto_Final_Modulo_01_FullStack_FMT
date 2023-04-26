@@ -1,12 +1,14 @@
 import React from 'react';
-// Import do CSS
-import './PaginaLogin.css';
-// Import do react-hook-form.
+import { Col, Container, Form, Row, Figure } from 'react-bootstrap'
 import {useForm} from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useAuth } from '../../store/Auth';
+import { useAuth } from '../../context/store/Auth';
+import { Input } from '../../components/Input/Input';
+import { SubmitButton } from '../../components/Button/Button';
+import Logo from '../../assets/Logo_PCS.png';
 
+// Validação
 const createLoginFormSchema = z.object({
     email: z.string()
         .nonempty('O e-mail é obrigatório')
@@ -34,35 +36,47 @@ const PaginaLogin = () => {
     }
 
     return(
-        <main id='PagLogin' onSubmit={handleSubmit(createUser)}>            
-            <h1 className='TituloPagina'>Login</h1>
-            <form className="formulario">
+        <Container className="d-flex justify-content-center align-items-center vh-100" >            
+            
+            <Figure.Image
+                width={500}
+                height={180}
+                alt="Logo"
+                src={Logo}
+            />
+            
+            <Form onSubmit={handleSubmit(createUser)}>
 
-                {/* INPUT EMAIL */}
-                <div className="campo">
-                    <label htmlFor="email">E-mail:</label>
-                    <input type="email"
-                    id='email'
-                    {...register("email")}/>
-                    {errors.email && <span>{errors.email.message}</span>}
-                </div>
                 
-                {/* INPUT SENHA */}
-                <div className='campo'>
-                    <label htmlFor="senha">Senha</label>
-                    <input type="password"
-                    id='senha'
-                    minLength={8}
-                    {...register("senha")} />
-                    {errors.senha && <span>{errors.senha.message}</span>}
-                </div>
+                <Col className='mt-5'> 
+                    <Form.Group as={Row} className='mb-3'>
+                        <Input
+                            name="email"
+                            label="E-mail:"
+                            type="email"
+                            id="email"
+                            placeholder="exemplo@exemplo.com"
+                            {...register("email")}
+                            error={errors.email && errors.email.message}
+                        />
+                    </Form.Group>
 
-                {/* BOTÃO */}
-                <div className='botao'>
-                    <button type='submit'>Entrar</button>
-                </div>
-            </form>
-        </main>
+                    <Form.Group as={Row} className='mb-3'>
+                        <Input
+                            name="senha"
+                            label="Senha:"
+                            type="password"
+                            id="senha"
+                            {...register("senha")}
+                            error={errors.email && errors.email.message}
+                        />
+                    </Form.Group>
+                </Col>
+
+                <SubmitButton label='Entrar' />                
+            
+            </Form>
+        </Container>
     )
 }
 

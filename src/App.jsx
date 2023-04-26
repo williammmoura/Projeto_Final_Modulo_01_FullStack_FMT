@@ -1,16 +1,13 @@
 import React from 'react';
-import './App.css';
 import Router from './Router'
-import { StoreProvider } from './store/StoreProvider'
+import { StoreProvider } from './context/store/StoreProvider'
 
 function App() {
 
   return (
-    <div className="App">
-      <StoreProvider>
-        <Router />
-      </StoreProvider>
-    </div>
+    <StoreProvider>
+      <Router />
+    </StoreProvider>
   );
 }
 
