@@ -19,11 +19,11 @@ export const Modal = ({
     >
       <BModal.Header closeButton>
         <BModal.Title id="contained-modal-title-vcenter">
-          {title}
+          Nome Medicamento:{title}
         </BModal.Title>
       </BModal.Header>
       <BModal.Body>
-        {children}      
+        Descrição:{children}      
       </BModal.Body>
       <BModal.Footer>
         <Button onClick={onClose}>Fechar</Button>
